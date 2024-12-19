@@ -23,4 +23,12 @@ class RedactorFile:
         self.db.append([product, price])
         self.saving_file()
         print(f"Добавлен: {product} - {price}")
-    
+        
+    def update_product(self, product, price):
+        for item in self.db:
+            if item[0] == product:
+                item[1] = price
+                self.save_file()
+                print(f"Обновлен: {product} - {price}")
+                return
+        print(f"Продукт по имени {product} не найден!")
