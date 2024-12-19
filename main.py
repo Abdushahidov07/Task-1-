@@ -18,4 +18,9 @@ class RedactorFile:
         with open(self.name_file, 'w', encoding='utf-8') as file:
             for product, price  in self.db:
                 file.write(f"{product} - {price}\n")
-     
+    
+    def add_product(self, product, price):
+        self.db.append([product, price])
+        self.saving_file()
+        print(f"Добавлен: {product} - {price}")
+    
